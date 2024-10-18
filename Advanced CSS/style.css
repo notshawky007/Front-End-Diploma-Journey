@@ -58,5 +58,13 @@ button {
   background: transparent;
   cursor: pointer;
 }
-
 /* End of Css reset */
+
+body {
+  font-family: var(--font-family-raleway);
+  font-weight: var(--font-weight-regular);
+  font-size: 1.6rem;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+}
