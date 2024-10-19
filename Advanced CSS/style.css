@@ -1,4 +1,4 @@
-/* declare variables */
+@charset "UTF-8";
 :root {
   --container-width: 119rem;
   --gutter: 2rem;
@@ -34,48 +34,102 @@
   --font-size-15: 1.5rem;
   --transition-timing: 0.3s;
 }
-/* Css reset */
+
 * {
   margin: 0;
   padding: 0;
   font: inherit;
 }
+
+*,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 a {
-  text-decoration: none;
   color: inherit;
   display: inline-block;
 }
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border: 0;
+}
+
 ul,
 ol {
   list-style: none;
-  button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    border: 0;
-  }
-
-  /* End of Css reset */
 }
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
   scroll-padding-top: 11rem;
 }
-body {
-  font-family: var(--font-family-raleway);
+
+body,
+[type="submit"] {
   font-size: 1.6rem;
-  color: var(--color-text);
+  font-family: var(--font-family-raleway);
   background-color: var(--color-background);
+  color: var(--color-text);
+  border: 0;
 }
 
 .container {
-  max-width: var(--container-width);
+  display: grid;
+  row-gap: 11rem;
   margin: 0 auto;
+  max-width: calc(var(--container-width) + var(--gutter) * 2);
+  padding-inline: var(--gutter);
+}
+
+.video-loop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 0.08;
+  z-index: -1;
+}
+
+.section {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  align-items: start;
+}
+
+.section--with-bg {
+  padding: 11rem 0;
+}
+
+.section--with-bg::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  background-color: var(--color-grey);
+  justify-self: center;
+  z-index: -1;
+}
+
+.h2-heading {
+  font-size: var(--font-size-65);
+  font-weight: var(--font-weight-bold);
+  grid-column: 1/-1;
+  margin-bottom: 8.7rem;
+  text-transform: uppercase;
+}
+
+.h3-heading {
+  font-size: var(--font-size-38);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 2.5rem;
 }
 
 .header {
@@ -88,7 +142,8 @@ body {
   background-color: var(--color-background);
   z-index: 1;
 }
-header::before {
+
+.header::before {
   content: ""; /* ✅ */
   position: absolute; /* ✅ */
   z-index: -1; /* ✅ */
@@ -96,24 +151,80 @@ header::before {
   width: 100vw; /* ✅ */
   border-bottom: 0.1rem solid var(--color-input-border); /* ✅ */
   background-color: var(--color-background);
+  /* top: 0rem; ✅ */
   top: 0.1rem;
 }
+
 /* Navigation */
 .navigation {
   transition: var(--transition-timing); /* for responsive screens */
   background-color: var(--color-background); /* for responsive screens */
 }
+
 .navigation__list {
   display: flex; /* ✅ */
   gap: 2rem; /* ✅ */
 }
 
-.navigation__link::link,
-.navigation__link::visited {
-  font-weight: var(--font-weight-medium);
+.navigation__link:link,
+.navigation__link:visited {
+  text-decoration: none; /* ✅ */
+  font-weight: var(--font-weight-medium); /* ✅ */
 }
 
-.navigation__link::hover,
-.navigation__link::active {
-  color: var(--color-text);
+.navigation__link:hover,
+.navigation__link:active {
+  text-decoration: underline; /* ✅ */
+  color: var(--color-text); /* ✅ */
+}
+
+.burger-menu__checkbox {
+  display: none;
+}
+
+/* Toggle Component */
+.toggle {
+  display: flex; /* ✅ */
+  gap: 1rem; /* ✅ */
+  margin-left: auto; /* ✅ */
+}
+
+.toggle__title {
+  font-weight: var(--font-weight-medium); /* ✅ */
+  font-size: var(--font-size-18); /* ✅ */
+}
+
+.toggle__label {
+  display: block; /* ✅ */
+  position: relative; /* ✅ */
+  background-color: var(--color-black); /* ✅ */
+  padding: 0.3rem 0.4rem; /* ✅ */
+  border-radius: 1.5rem; /* ✅ */
+  width: 4.5rem; /* ✅ */
+  height: 2.2rem; /* ✅ */
+  cursor: pointer; /* ✅ */
+  transition: background-color 0.3s; /* ✅ */
+}
+
+.toggle__label::after {
+  content: ""; /* ✅ */
+  width: 1.6rem; /* ✅ */
+  height: 1.6rem; /* ✅ */
+  border-radius: 50%; /* ✅ */
+  display: block; /* ✅ */
+  background-color: var(--color-white); /* ✅ */
+  transition: 0.3s; /* ✅ */
+}
+
+.toggle__checkbox {
+  display: none; /* ✅ */
+}
+
+.toggle__checkbox:checked + .toggle__label {
+  background: var(--color-white); /* ✅ */
+}
+
+.toggle__checkbox:checked + .toggle__label::after {
+  transform: translateX(2.1rem); /* ✅ */
+  background: var(--color-green); /* ✅ */
 }
