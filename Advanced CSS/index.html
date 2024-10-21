@@ -17,6 +17,9 @@
   </head>
   <body>
     <div class="container">
+      <video class="video-loop" autoplay loop muted>
+        <source src="./video-loop.mp4" type="video/mp4" />
+      </video>
       <header class="header">
         <nav class="navigation">
           <ul class="navigation__list">
@@ -46,7 +49,8 @@
           <a class="bio__links say-hi-link" href="#contact">Say Hi</a>
           <a
             class="bio__links find-out-link"
-            href="./assets/MostafaShawkyResume.pdf"
+            href="./MostafaShawkyResume.pdf"
+            target="_blank"
           >
             Download CV <span class="bio__arrow">↓</span>
           </a>
@@ -56,6 +60,88 @@
             class="bio__pic"
             src="./images/personal-pic.png"
             alt="personal pic of Mostafa Shawky"
+          />
+        </div>
+      </section>
+      <section id="skills" class="section skills section--with-bg">
+        <h2 class="h2-heading">Skills</h2>
+
+        <ul class="skills__list">
+          <li class="skills__item">
+            <h2 class="skills__title">HTML</h2>
+            <span class="skills__years">2 years</span>
+          </li>
+          <li class="skills__item">
+            <h2 class="skills__title">Css</h2>
+            <span class="skills__years">2 years</span>
+          </li>
+          <li class="skills__item">
+            <h2 class="skills__title">JavaScript</h2>
+            <span class="skills__years">2 years</span>
+          </li>
+          <li class="skills__item">
+            <h2 class="skills__title">React</h2>
+            <span class="skills__years">1 years</span>
+          </li>
+          <li class="skills__item">
+            <h2 class="skills__title">NodeJs</h2>
+            <span class="skills__years">1 years</span>
+          </li>
+          <li class="skills__item">
+            <h2 class="skills__title">Wordpress</h2>
+            <span class="skills__years">1 years</span>
+          </li>
+        </ul>
+      </section>
+      <section id="projects" class="section projects">
+        <h2 class="h2-heading">
+          MY FEATURED <br />
+          PROJECTS
+        </h2>
+        <div class="projects__main">
+          <img
+            class="projects__img responsive-img"
+            src="./images/project-1.jpg"
+            alt="Quran Tab Extension"
+          />
+          <div class="projects__data">
+            <h3 class="h3-heading">
+              Saleh <br />
+              Constructions
+            </h3>
+            <p class="projects__description">
+              A responsive and user-friendly website for a construction and
+              insulation company, showcasing their top-quality projects and
+              services.
+            </p>
+            <a
+              class="projects__link"
+              href="https://salehmcc.com/"
+              target="_blank"
+              >Link</a
+            >
+          </div>
+
+          <div class="projects__data">
+            <h3 class="h3-heading">
+              Eilaf <br />
+              Tourism
+            </h3>
+            <p class="projects__description">
+              A responsive and easy-to-use site for a top tourism company,
+              helping you book amazing trips and tours with ease.
+            </p>
+            <a
+              class="projects__link"
+              href="https://eilaftourism.com/"
+              target="_blank"
+              >Link</a
+            >
+          </div>
+          <img
+            class="projects__img responsive-img"
+            src="./images/project-2.jpg"
+            alt="Eilaf Tourism"
           />
         </div>
       </section>

@@ -151,6 +151,7 @@ body,
   width: 100vw; /* ✅ */
   border-bottom: 0.1rem solid var(--color-input-border); /* ✅ */
   background-color: var(--color-background);
+  /* top: 0rem; ✅ */
   top: 0.1rem;
 }
 
@@ -227,7 +228,7 @@ body,
   transform: translateX(2.1rem); /* ✅ */
   background: var(--color-green); /* ✅ */
 }
-/* bio */
+
 .bio {
   -moz-column-gap: 7.4rem;
   column-gap: 7.4rem;
@@ -247,7 +248,6 @@ body,
 .bio__name {
   font-weight: var(--font-weight-semi-bold);
 }
-
 .bio__links {
   font-size: 2.4rem;
   font-weight: var(--font-weight-semi-bold);
@@ -314,4 +314,77 @@ body,
 }
 .bio__pic {
   width: 42.7rem;
+}
+#skills {
+  grid-template-columns: unset; /* Resets the grid for this section */
+}
+
+.skills__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 3rem; /* Spacing between items */
+  padding: 2rem;
+  width: 100%; /* Full width of the container */
+}
+
+.skills__item {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.skills__item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.skills__title {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.skills__years {
+  font-size: 1.6rem;
+  color: var(--color-dark-green); /* Highlight years of experience */
+}
+
+.projects__main {
+  -moz-column-gap: 7.4rem;
+  column-gap: 7.4rem;
+  row-gap: 7.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+}
+.projects__img {
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+}
+.projects__data {
+  align-self: center;
+}
+.projects__description {
+  line-height: 1.5;
+}
+.projects__link {
+  color: var(--color-darker-blue);
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-weight-medium);
+  margin-top: 2.3rem;
+}
+.projects__link::after {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-image: url("./images/external-icon.png");
+  background-size: contain;
+  margin-left: 0.6rem;
 }
