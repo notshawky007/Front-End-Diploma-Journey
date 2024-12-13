@@ -1,5 +1,4 @@
 //Challenge 1
-//Create constructor function for Laptop with properties: brand, model, batteryPrecentage and methods: useSoftware deacrease batteryPrecentage by 15% and charge increase batteryPrecentage by 25% and batterPrecentage don't exceed 100% and checkBattery if batteryPrecentage is less than 20% log "Please charge the battery" if batteryPrecentage is 100% log "Battery is full" and log the batteryPrecentage
 
 function Laptop(brand, model, batteryPrecentage) {
   this.brand = brand;
