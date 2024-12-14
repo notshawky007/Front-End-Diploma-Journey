@@ -49,23 +49,35 @@
 // delay(8000).then(() => console.log("8 seconds"));
 
 //refactor the above code using async and await
+// const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// const asyncFunction = async () => {
+//   await delay(2000);
+//   console.log("2 seconds");
+//   await delay(3000);
+//   console.log("3 seconds");
+//   await delay(4000);
+//   console.log("4 seconds");
+//   await delay(5000);
+//   console.log("5 seconds");
+//   await delay(6000);
+//   console.log("6 seconds");
+//   await delay(7000);
+//   console.log("7 seconds");
+//   await delay(8000);
+//   console.log("8 seconds");
+// };
+
+// asyncFunction();
+
+//refactor the above code using async and await with a for loop
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const asyncFunction = async () => {
-  await delay(2000);
-  console.log("2 seconds");
-  await delay(3000);
-  console.log("3 seconds");
-  await delay(4000);
-  console.log("4 seconds");
-  await delay(5000);
-  console.log("5 seconds");
-  await delay(6000);
-  console.log("6 seconds");
-  await delay(7000);
-  console.log("7 seconds");
-  await delay(8000);
-  console.log("8 seconds");
+  for (let i = 1; i <= 5; i++) {
+    await delay(i * 1000);
+    console.log(`${i} seconds`);
+  }
 };
 
 asyncFunction();
