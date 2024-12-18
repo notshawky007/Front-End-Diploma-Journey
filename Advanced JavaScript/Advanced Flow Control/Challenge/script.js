@@ -25,28 +25,24 @@ document.getElementById("search-btn").addEventListener("click", async () => {
     // Extract and display user data
     userInfoDiv.innerHTML = `
       <img src="${data.avatar_url}" alt="${data.login}'s avatar">
-      <h2>${data.name || data.login}</h2>
+      <h2>${data.name || "No name available"}</h2>
       <p>${data.bio || "No bio available"}</p>
       <p>Followers: ${data.followers}</p>
-      <p>Social Media: ${extractSocialLinks(data.bio)}</p>
+      <p>Twitter Username: ${extractTwitterUsername(data.bio)}</p>
     `;
   } catch (error) {
     errorDiv.textContent = error.message;
   }
 });
 
-function extractSocialLinks(bio) {
-  if (!bio) return "No social media links found.";
+function extractTwitterUsername(bio) {
+  if (!bio) return "No Twitter username found.";
 
-  // Match Twitter usernames
-  const twitterRegex =
-    /(?:https?:\/\/)?(?:www\.)?twitter\.com\/([A-Za-z0-9_]+)/i;
-  const twitterMatch = bio.match(twitterRegex);
-  const twitterLink = twitterMatch
-    ? `<a href="https://twitter.com/${twitterMatch[1]}" target="_blank">@${twitterMatch[1]}</a>`
-    : null;
+  // Match explicit Twitter username in bio, e.g., "twitter_username": "value"
+  const twitterUsernameRegex = /"twitter_username"\s*:\s*"([A-Za-z0-9_]+)"/i;
+  const twitterMatch = bio.match(twitterUsernameRegex);
 
-  return twitterLink
-    ? `Twitter: ${twitterLink}`
-    : "No social media links found.";
+  return twitterMatch
+    ? `<a href="https://twitter.com/${twitterMatch[1]}" target="_blank">${twitterMatch[1]}</a>`
+    : "No Twitter username found.";
 }
