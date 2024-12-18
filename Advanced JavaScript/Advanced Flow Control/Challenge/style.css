@@ -1,65 +1,109 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f4f4f9;
+  height: 100vh;
+  color: #fff;
 }
 
 #app {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  padding: 25px 35px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 24px;
   color: #333;
 }
 
+h1 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2575fc;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
 input[type="text"] {
-  width: calc(100% - 30px);
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #2575fc;
+  outline: none;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  padding: 12px 25px;
+  background: #2575fc;
+  color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #0056b3;
-}
-
-#user-info {
-  margin-top: 20px;
-  text-align: left;
-}
-
-#user-info img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: block;
-  margin: 0 auto 10px;
+  transform: scale(1.05);
 }
 
 #error-message {
-  color: red;
-  margin-top: 10px;
+  color: #ff4d4d;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+#user-info {
+  text-align: left;
+  margin-top: 25px;
+}
+
+#user-info img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px;
+  border: 3px solid #2575fc;
+}
+
+#user-info h2 {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+}
+
+#user-info p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+#user-info a {
+  color: #2575fc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#user-info a:hover {
+  text-decoration: underline;
 }
