@@ -71,17 +71,17 @@
 // asyncFunction();
 
 //refactor the above code using async and await with a for loop
-const delay = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms));
+// const delay = (ms) => new Promise((resolve, reject) => setTimeout(resolve, ms));
 
-try {
-  const asyncFunction = async () => {
-    for (let i = 2; i <= 8; i++) {
-      await delay(i * 1000);
-      console.log(`${i} seconds`);
-    }
-  };
+// try {
+//   const asyncFunction = async () => {
+//     for (let i = 2; i <= 8; i++) {
+//       await delay(i * 1000);
+//       console.log(`${i} seconds`);
+//     }
+//   };
 
-  asyncFunction();
-} catch (error) {
-  console.log(error);
-}
+//   asyncFunction();
+// } catch (error) {
+//   console.log(error);
+// }
