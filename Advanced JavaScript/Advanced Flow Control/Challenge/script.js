@@ -34,13 +34,23 @@ function clearPreviousData(userInfoDiv, errorDiv) {
 
 function displayError(errorDiv, message) {
   errorDiv.textContent = message;
+  errorDiv.style.color = "red";
+  errorDiv.style.fontWeight = "bold";
 }
 
 async function fetchGitHubUser(username) {
   const response = await fetch(`https://api.github.com/users/${username}`);
 
   if (!response.ok) {
-    throw new Error("User not found or API error");
+    if (response.status === 404) {
+      throw new Error(
+        "User not found. Please check the username and try again."
+      );
+    } else if (response.status === 403) {
+      throw new Error("API rate limit exceeded. Please try again later.");
+    } else {
+      throw new Error(`Error: ${response.statusText}`);
+    }
   }
 
   return await response.json();
@@ -52,7 +62,13 @@ async function fetchGitHubRepos(username) {
   );
 
   if (!response.ok) {
-    throw new Error("Unable to fetch repositories");
+    if (response.status === 404) {
+      throw new Error("Repositories not found for this user.");
+    } else if (response.status === 403) {
+      throw new Error("API rate limit exceeded. Please try again later.");
+    } else {
+      throw new Error("Unable to fetch repositories.");
+    }
   }
 
   return await response.json();
