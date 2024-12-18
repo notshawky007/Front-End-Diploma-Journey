@@ -37,8 +37,16 @@ document.getElementById("search-btn").addEventListener("click", async () => {
 
 function extractSocialLinks(bio) {
   if (!bio) return "No social media links found.";
-  const regex =
-    /(https?:\/\/)?(www\.)?(twitter\.com|x\.com|instagram\.com)\/[A-Za-z0-9_]+/gi;
-  const matches = bio.match(regex);
-  return matches ? matches.join(", ") : "No social media links found.";
+
+  // Match Twitter usernames
+  const twitterRegex =
+    /(?:https?:\/\/)?(?:www\.)?twitter\.com\/([A-Za-z0-9_]+)/i;
+  const twitterMatch = bio.match(twitterRegex);
+  const twitterLink = twitterMatch
+    ? `<a href="https://twitter.com/${twitterMatch[1]}" target="_blank">@${twitterMatch[1]}</a>`
+    : null;
+
+  return twitterLink
+    ? `Twitter: ${twitterLink}`
+    : "No social media links found.";
 }
