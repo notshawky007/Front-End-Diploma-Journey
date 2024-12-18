@@ -28,21 +28,13 @@ document.getElementById("search-btn").addEventListener("click", async () => {
       <h2>${data.name || "No name available"}</h2>
       <p>${data.bio || "No bio available"}</p>
       <p>Followers: ${data.followers}</p>
-      <p>Twitter Username: ${extractTwitterUsername(data.bio)}</p>
+      <p>Twitter Username: ${
+        data.twitter_username
+          ? `<a href="https://twitter.com/${data.twitter_username}" target="_blank">${data.twitter_username}</a>`
+          : "No Twitter username available"
+      }</p>
     `;
   } catch (error) {
     errorDiv.textContent = error.message;
   }
 });
-
-function extractTwitterUsername(bio) {
-  if (!bio) return "No Twitter username found.";
-
-  // Match explicit Twitter username in bio, e.g., "twitter_username": "value"
-  const twitterUsernameRegex = /"twitter_username"\s*:\s*"([A-Za-z0-9_]+)"/i;
-  const twitterMatch = bio.match(twitterUsernameRegex);
-
-  return twitterMatch
-    ? `<a href="https://twitter.com/${twitterMatch[1]}" target="_blank">${twitterMatch[1]}</a>`
-    : "No Twitter username found.";
-}
