@@ -6,8 +6,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   color: #fff;
+  box-sizing: border-box;
 }
 
 #app {
@@ -16,13 +17,14 @@ body {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
   padding: 30px 40px;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   text-align: center;
   color: #333;
+  box-sizing: border-box;
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 5vw;
   font-weight: 700;
   color: #243b55;
   margin-bottom: 20px;
@@ -31,12 +33,13 @@ h1 {
 
 form {
   display: flex;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 25px;
 }
 
 input[type="text"] {
-  flex: 1;
+  flex: 1 1 calc(100% - 100px);
   padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -51,7 +54,8 @@ input[type="text"]:focus {
 }
 
 button {
-  padding: 15px 30px;
+  flex: 1 1 100px;
+  padding: 15px 20px;
   background: linear-gradient(to right, #6a11cb, #2575fc);
   color: white;
   border: none;
@@ -78,11 +82,13 @@ button:hover {
   margin-top: 25px;
   display: grid;
   gap: 20px;
+  width: 100%;
 }
 
 #user-info img {
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  max-width: 120px;
+  height: auto;
   border-radius: 50%;
   display: block;
   margin: 0 auto;
@@ -95,7 +101,7 @@ button:hover {
 }
 
 #user-info h2 {
-  font-size: 24px;
+  font-size: 4vw;
   font-weight: 700;
   color: #243b55;
   text-align: center;
@@ -103,34 +109,54 @@ button:hover {
 
 #user-info p {
   margin: 10px 0;
-  font-size: 16px;
+  font-size: 2.5vw;
   color: #555;
   line-height: 1.6;
 }
 
-#user-info .data-item {
-  display: flex;
-  justify-content: space-between;
+#user-info .repos-container {
+  display: grid;
+  gap: 15px;
+}
+
+#user-info .repo-item {
+  padding: 15px;
   background: #f9f9f9;
-  padding: 10px 15px;
   border-radius: 8px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 2vw;
 }
 
-#user-info .data-item span {
-  font-weight: bold;
-  color: #243b55;
-}
-
-#user-info a {
+#user-info .repo-item h4 {
+  font-size: 3vw;
   color: #2575fc;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s;
 }
 
-#user-info a:hover {
-  color: #6a11cb;
-  text-decoration: underline;
+#user-info .repo-item p {
+  margin: 5px 0;
+  font-size: 2.5vw;
+}
+
+#search-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#search-history .history-item {
+  padding: 10px 15px;
+  background: #243b55;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search-history .history-item:hover {
+  background: #6a11cb;
 }
