@@ -1,4 +1,3 @@
-// script.js
 const form = document.getElementById("search-form");
 form.addEventListener("submit", handleSearch);
 
@@ -22,7 +21,7 @@ async function handleSearch(event) {
     const userData = await fetchGitHubUser(username);
     const repoData = await fetchGitHubRepos(username);
     displayUserInfo(userData, userInfoDiv);
-    displayUserRepos(repoData, userInfoDiv);
+    await displayUserRepos(repoData, userInfoDiv);
   } catch (error) {
     displayError(errorDiv, error.message);
   }
@@ -59,6 +58,16 @@ async function fetchGitHubRepos(username) {
   return await response.json();
 }
 
+async function fetchRepoLanguages(languagesUrl) {
+  const response = await fetch(languagesUrl);
+
+  if (!response.ok) {
+    throw new Error("Unable to fetch repository languages");
+  }
+
+  return await response.json();
+}
+
 function displayUserInfo(data, userInfoDiv) {
   const { avatar_url, login, name, bio, followers, twitter_username } = data;
 
@@ -76,32 +85,41 @@ function displayUserInfo(data, userInfoDiv) {
   `;
 }
 
-function displayUserRepos(repos, userInfoDiv) {
+async function displayUserRepos(repos, userInfoDiv) {
   const reposContainer = document.createElement("div");
   reposContainer.className = "repos-container";
 
-  repos.forEach((repo) => {
+  for (const repo of repos) {
     const {
       name,
       description,
       stargazers_count,
       forks_count,
-      language,
       html_url,
+      languages_url,
     } = repo;
+
     const repoItem = document.createElement("div");
     repoItem.className = "repo-item";
+
+    let languagesList = "No languages available";
+    try {
+      const languages = await fetchRepoLanguages(languages_url);
+      languagesList =
+        Object.keys(languages).join(", ") || "No languages available";
+    } catch (error) {
+      console.error("Error fetching languages:", error.message);
+    }
 
     repoItem.innerHTML = `
       <h4><a href="${html_url}" target="_blank">${name}</a></h4>
       <p>${description || "No description available"}</p>
-      <p>⭐ ${stargazers_count} | 🍴 ${forks_count} | 🖥️ ${
-      language || "N/A"
-    }</p>
+      <p>⭐ ${stargazers_count} | 🍴 ${forks_count}</p>
+      <p class="languages">Languages: ${languagesList}</p>
     `;
 
     reposContainer.appendChild(repoItem);
-  });
+  }
 
   userInfoDiv.appendChild(reposContainer);
 }
