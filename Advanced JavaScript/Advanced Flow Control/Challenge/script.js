@@ -1,6 +1,9 @@
-document.getElementById("search-btn").addEventListener("click", handleSearch);
+const form = document.getElementById("search-form");
+form.addEventListener("submit", handleSearch);
 
-async function handleSearch() {
+async function handleSearch(event) {
+  event.preventDefault(); // Prevent form submission from reloading the page
+
   const username = document.getElementById("username").value.trim();
   const userInfoDiv = document.getElementById("user-info");
   const errorDiv = document.getElementById("error-message");
