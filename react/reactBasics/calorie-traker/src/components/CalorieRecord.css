@@ -1,4 +1,4 @@
-.record {
+.calorie-record {
   list-style-type: none;
   padding: 1em;
   margin: 1em 0;
@@ -13,7 +13,7 @@
   align-items: stretch;
 }
 
-.record li {
+.calorie-record li {
   margin: 0.5em;
   font-size: 1.2em;
   color: #333;
@@ -22,15 +22,29 @@
   align-items: center;
 }
 
-.record li:first-child {
+.record-data {
   font-weight: bold;
   font-size: 1.4em;
   color: #555;
 }
 
-.record-calories {
+.meal-type {
+  font-style: italic;
+  color: #888;
+}
+
+.content {
+  color: #666;
+}
+
+.calorie-count {
   font-weight: bold;
   color: #ff6347;
   font-size: 1.5em;
-  text-align: right;
+}
+
+.calorie-goal {
+  font-weight: bold;
+  color: #32cd32;
+  font-size: 1.2em;
 }
