@@ -1,11 +1,13 @@
+import "./CalorieRecord.css";
+
 function CalorieRecord() {
   return (
-    <ui>
+    <ul className="record">
       <li> Jan 7, 2025</li>
       <li> Breakfast </li>
       <li> Eggs + Beans </li>
-      <li> 400 calories </li>
-    </ui>
+      <li className="record-calories"> 400 calories </li>
+    </ul>
   );
 }
 

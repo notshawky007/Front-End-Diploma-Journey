@@ -1,0 +1,36 @@
+.record {
+  list-style-type: none;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.record li {
+  margin: 0.5em;
+  font-size: 1.2em;
+  color: #333;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.record li:first-child {
+  font-weight: bold;
+  font-size: 1.4em;
+  color: #555;
+}
+
+.record-calories {
+  font-weight: bold;
+  color: #ff6347;
+  font-size: 1.5em;
+  text-align: right;
+}

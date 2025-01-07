@@ -1,4 +1,3 @@
-import "./App.css";
 import CalorieRecord from "./components/CalorieRecord";
 
 function App() {
