@@ -40,3 +40,82 @@
 .read-the-docs {
   color: #888;
 }
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.records-container {
+  margin-bottom: 20px;
+}
+
+.summary-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.summary-text {
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.records-container {
+  margin-bottom: 20px;
+}
+
+.summary-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.summary-text {
+  font-size: 1.2em;
+  color: #555;
+  text-align: center;
+}
