@@ -1,10 +1,10 @@
 function CalorieRecord() {
   return (
     <ui>
-      <li> 400 Calorie </li>
-      <li> BreakFast </li>
+      <li> Jan 7, 2025</li>
+      <li> Breakfast </li>
       <li> Eggs + Beans </li>
-      <li> 7/1/2025 </li>
+      <li> 400 calories </li>
     </ui>
   );
 }
